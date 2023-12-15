@@ -12,7 +12,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "net.serenity-bdd:serenity-gradle-plugin:4.0.15"
+        classpath "net.serenity-bdd:serenity-gradle-plugin:4.0.27"
     }
 }
 
@@ -26,7 +26,7 @@ sourceCompatibility = 16
 targetCompatibility = 16
 
 ext {
-    serenity_version = '4.0.15'
+    serenity_version = '4.0.29'
     junit_platform_launcher_version="1.10.0"
     cucumber_junit_platform_engine_version="7.14.0"
     junit_platform_suite_version="1.10.0"
@@ -38,10 +38,13 @@ ext {
 
 dependencies {
     dependencies {
+        testImplementation fileTree(dir: 'libs', include: '*.jar')
         testImplementation "net.serenity-bdd:serenity-core:${serenity_version}"
         testImplementation "net.serenity-bdd:serenity-cucumber:${serenity_version}"
         testImplementation "net.serenity-bdd:serenity-screenplay:${serenity_version}"
         testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenity_version}"
+        testImplementation "net.serenity-bdd:serenity-reports:${serenity_version}"
+        testImplementation "net.serenity-bdd:serenity-reports-configuration:${serenity_version}"
         testImplementation "net.serenity-bdd:serenity-ensure:${serenity_version}"
         testImplementation "org.junit.platform:junit-platform-launcher:${junit_platform_launcher_version}"
         testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumber_junit_platform_engine_version}"
