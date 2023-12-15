@@ -9,13 +9,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class Search extends UIInteractionSteps {
 
-    Dummy dummy;
-
     @Step("Search for {0}")
     public void searchFor(String searchQuery) {
         find(SearchPage.SEARCH_BAR).waitUntilVisible().sendKeys(searchQuery);
         find(SearchPage.SEARCH_BAR).submit();
-        dummy.assertThisValue(false);
+        assertThat(searchQuery).as("Expected a different value").isEqualTo("red");
     }
 
     @Step("Get title of the page")
